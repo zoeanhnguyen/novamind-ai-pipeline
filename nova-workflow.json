@@ -1,0 +1,723 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "novamind-pipeline",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        -256
+      ],
+      "id": "b93135ba-17c0-42b4-b455-80a8df312b5f",
+      "name": "Webhook",
+      "webhookId": "274544b6-34dd-47e4-ac62-6fb13a719abd"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "=<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>NovaMind | Execution Dashboard</title>\n  <style>\n    :root { --bg: #0b0f1a; --card: #161b2c; --accent: #818cf8; --text: #f8fafc; --sub: #94a3b8; --success: #10b981; }\n    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 50px auto; padding: 20px; line-height: 1.5; }\n    header { border-bottom: 1px solid #2d3348; padding-bottom: 20px; margin-bottom: 30px; }\n    h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin: 0; color: var(--accent); }\n    .status-pill { display: inline-flex; align-items: center; background: rgba(16, 185, 129, 0.1); color: var(--success); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-top: 10px; }\n    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }\n    .card { background: var(--card); border-radius: 20px; padding: 24px; border: 1px solid #2d3348; }\n    .full { grid-column: span 2; }\n    h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--sub); margin-bottom: 16px; margin-top: 0; }\n    .blog-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; display: block; }\n    .btn-disabled { display: inline-block; background: #242b3d; color: var(--sub); padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; margin-top: 15px; border: 1px solid #334155; cursor: default; }\n    .tag-container { display: flex; flex-wrap: wrap; gap: 8px; }\n    .tag { background: #242b3d; padding: 6px 14px; border-radius: 8px; font-size: 13px; border: 1px solid #334155; }\n    .insight-box { background: #0f172a; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); color: #cbd5e1; font-size: 15px; }\n    .topic-item { background: #0f172a; border-radius: 10px; padding: 16px; margin-bottom: 10px; border: 1px solid #2d3348; }\n    .topic-title { font-weight: 600; font-size: 15px; color: var(--text); margin-bottom: 4px; }\n    .topic-reason { font-size: 13px; color: var(--sub); }\n    .topic-num { display: inline-block; background: var(--accent); color: white; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; font-size: 12px; font-weight: 700; margin-right: 8px; }\n    .footer-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--sub); margin-top: 30px; padding-top: 20px; border-top: 1px solid #2d3348; }\n    .id-code { font-family: monospace; color: var(--accent); }\n  </style>\n</head>\n<body>\n  <header>\n    <h1>NovaMind Pipeline</h1>\n    <div class=\"status-pill\">● System Active</div>\n  </header>\n\n  <div class=\"grid\">\n    <div class=\"card full\">\n      <h3>Primary Content</h3>\n      <span class=\"blog-title\">{{ $('Code in JavaScript').first().json.Title }}</span>\n      <p style=\"color: var(--sub); font-size: 15px;\">{{ $('Code in JavaScript').first().json['Meta Description'] }}</p>\n      <span class=\"btn-disabled\">Preview Only — Not Published</span>\n    </div>\n\n    <div class=\"card\">\n      <h3>Distribution</h3>\n      <div class=\"tag-container\">\n        <div class=\"tag\">Creative Director</div>\n        <div class=\"tag\">Solo Freelancer</div>\n        <div class=\"tag\">Agency Manager</div>\n      </div>\n    </div>\n\n    <div class=\"card\">\n      <h3>Automation Status</h3>\n      <div style=\"font-size: 24px; font-weight: 700; color: var(--success);\">100%</div>\n      <p style=\"font-size: 12px; color: var(--sub); margin: 0;\">Data synced to Sheets</p>\n    </div>\n\n    <div class=\"card full\">\n      <h3>AI Performance Insight</h3>\n      <div class=\"insight-box\">{{ $('Performance Summary').first().json.text }}</div>\n    </div>\n\n    <div class=\"card full\">\n      <h3>Suggested Next Topics</h3>\n      {{ $('Suggestions').first().json.suggestions.map((s, i) => `\n        <div class=\"topic-item\">\n          <div class=\"topic-title\"><span class=\"topic-num\">${i+1}</span>${s.title}</div>\n          <div class=\"topic-reason\">${s.reason}</div>\n        </div>\n      `).join('') }}\n    </div>\n  </div>\n\n  <div class=\"footer-meta\">\n    <span>Execution ID: <span class=\"id-code\">{{ $('Edit Fields').first().json.campaign_id }}</span></span>\n    <span>{{ $('Edit Fields').first().json.timestamp }}</span>\n  </div>\n</body>\n</html>",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "text/html"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        2048,
+        288
+      ],
+      "id": "8de1568d-febe-4830-a239-b562c9dfcca9",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "19ebc4de-a8ae-42e8-b677-2144cccdb6d6",
+              "name": "timestamp",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "7a70409e-a7ae-4306-9bd4-53b85391fb78",
+              "name": "campaign_id",
+              "value": "={{ 'camp_' + $now.toMillis() }}",
+              "type": "string"
+            },
+            {
+              "id": "cfcb521d-79c7-4cc4-b637-90becf191835",
+              "name": "topic",
+              "value": "={{ $json.body.topic }}",
+              "type": "string"
+            },
+            {
+              "id": "b212dd27-438e-448c-80ab-7027fc861b2d",
+              "name": "author",
+              "value": "={{ $json.body.author }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        256,
+        -256
+      ],
+      "id": "392ec7ac-91e3-44c1-ab6c-fb15b0932cbf",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Topic: {{ $json.topic }}\nAuthor: {{ $json.author }}\nCampaign ID: {{ $json.campaign_id }}\n\nReturn ONLY the JSON object. No markdown. No explanation.",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are an expert SEO Content Strategist for NovaMind, an AI startup helping creative agencies automate workflows. You will receive a blog topic and must return ONLY valid JSON (no markdown, no explanation, no code blocks).\n\nCRITICAL RULES:\n1. Do NOT use em dashes (—), use hyphens (-) only\n2. NEVER use the words \"discover\" or \"explore\" in any text\n3. Use \\n\\n between paragraphs inside JSON strings\n4. Do NOT use literal line breaks inside JSON strings\n5. All newsletter bodies must be fully written, NO placeholders\n\nReturn EXACTLY this JSON structure:\n\n{\n  \"blog\": {\n    \"page_title_h1\": \"A compelling 50-60 character title about the topic\",\n    \"page_url\": \"www.novamind.com/blog/slug-based-on-keywords\",\n    \"meta_description\": \"A 130-140 character meta description summarizing the blog\",\n    \"keywords\": [\"primary keyword\", \"secondary keyword 1\", \"secondary keyword 2\"],\n    \"outline\": [\"Section 1 Title\", \"Section 2 Title\", \"Section 3 Title\", \"Section 4 Title\", \"Section 5 Title\"],\n    \"draft\": \"## Section 1 Title\\n\\nWrite 2-3 detailed paragraphs here covering this section thoroughly.\\n\\n## Section 2 Title\\n\\nWrite 2-3 detailed paragraphs here.\\n\\n## Section 3 Title\\n\\nWrite 2-3 detailed paragraphs here.\\n\\n## Section 4 Title\\n\\nWrite 2-3 detailed paragraphs here.\\n\\n## Section 5 Title\\n\\nWrite 2-3 detailed paragraphs here. Total draft length must reach approximately 800-1000 words.\"\n  },\n  \"newsletters\": {\n    \"creative_director\": {\n      \"subject\": \"A compelling subject line for Creative Directors\",\n      \"body\": \"Write a complete 3-paragraph newsletter for Creative Directors at agencies.\\n\\nParagraph 1: Open with a bold insight about how this topic directly impacts their team's creative output and efficiency. Be specific, not generic.\\n\\n- Bullet point 1: One concrete action they can take this week related to the topic\\n- Bullet point 2: One metric or result they should track\\n- Bullet point 3: One tool or approach NovaMind recommends\\n\\nParagraph 2: Explain how ignoring this trend puts their agency behind competitors. Use a specific scenario.\\n\\nParagraph 3: End with a strong CTA - invite them to read the full blog and book a NovaMind demo. Total length: 200-230 words.\"\n    },\n    \"solo_freelancer\": {\n      \"subject\": \"A compelling subject line for Solo Freelancers\",\n      \"body\": \"Write a complete 3-paragraph newsletter for solo freelancers and independent creatives.\\n\\nParagraph 1: Open by connecting this topic to a real pain point freelancers face - time, money, or client management. Be direct and relatable.\\n\\n- Bullet point 1: One specific way this topic saves them time\\n- Bullet point 2: One way it helps them earn more or spend less\\n- Bullet point 3: One free or low-cost tool they can use today\\n\\nParagraph 2: Share a short scenario of a freelancer who applied this and what changed for them.\\n\\nParagraph 3: End with a CTA - invite them to read the full blog and try NovaMind free. Total length: 200-230 words.\"\n    },\n    \"agency_manager\": {\n      \"subject\": \"A compelling subject line for Agency Managers\",\n      \"body\": \"Write a complete 3-paragraph newsletter for agency operations managers and directors.\\n\\nParagraph 1: Open with a business case - how this topic affects agency margins, client delivery speed, or team capacity. Use numbers if possible.\\n\\n- Bullet point 1: One process they can automate or optimize using this topic\\n- Bullet point 2: One risk they face if they delay acting on this\\n- Bullet point 3: One way NovaMind helps scale this across their entire operation\\n\\nParagraph 2: Describe what a well-run agency looks like after implementing this - concrete outcomes.\\n\\nParagraph 3: End with a CTA - invite them to read the full blog and schedule a strategy call with NovaMind. Total length: 200-230 words.\"\n    }\n  }\n}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        512,
+        -256
+      ],
+      "id": "abad59b3-b3e7-443a-9d85-e293ab0447f4",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "jsCode": "try {\n    const data = $input.first().json;\n    const rawText = data.text || \"\";\n    \n    if (!rawText) {\n        throw new Error(\"Field 'text' is missing. Available keys: \" + Object.keys(data).join(\", \"));\n    }\n\n    const start = rawText.indexOf('{');\n    const end = rawText.lastIndexOf('}');\n    \n    if (start === -1 || end === -1) {\n        throw new Error(\"JSON not found in response. Text starts with: \" + rawText.substring(0, 100));\n    }\n\n    const jsonString = rawText.substring(start, end + 1);\n    const parsed = JSON.parse(jsonString);\n\n    return [{\n        json: {\n            \"Title\": parsed.blog?.page_title_h1 || \"missing\",\n            \"Meta Description\": parsed.blog?.meta_description || \"missing\",\n            \"URL\": parsed.blog?.page_url || \"missing\",\n            \"Draft\": parsed.blog?.draft || \"missing\",\n            \"Newsletter Creative Director\": parsed.newsletters?.creative_director?.body || \"missing\",\n            \"Newsletter Freelancer\": parsed.newsletters?.solo_freelancer?.body || \"missing\",\n            \"Newsletter Agency Manager\": parsed.newsletters?.agency_manager?.body || \"missing\",\n            \"Timestamp\": new Date().toISOString()\n        }\n    }];\n\n} catch(e) {\n    return [{\n        json: {\n            \"Title\": \"ERROR: \" + e.message.substring(0, 200),\n            \"Meta Description\": \"\", \n            \"URL\": \"\", \n            \"Draft\": \"\",\n            \"Newsletter Creative Director\": \"\",\n            \"Newsletter Freelancer\": \"\",\n            \"Newsletter Agency Manager\": \"\",\n            \"Timestamp\": new Date().toISOString()\n        }\n    }];\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        896,
+        -256
+      ],
+      "id": "a2a07abe-d89d-4883-9a0c-83d02df20569",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1wxUQZTdsD0fSRTxn5JYRXDuIhOBLvWJOJwIauZdxEGc",
+          "mode": "list",
+          "cachedResultName": "NovaMind",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wxUQZTdsD0fSRTxn5JYRXDuIhOBLvWJOJwIauZdxEGc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wxUQZTdsD0fSRTxn5JYRXDuIhOBLvWJOJwIauZdxEGc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Title": "={{ $json.Title }}",
+            "Meta Description": "={{ $json['Meta Description'] }}",
+            "Draft": "={{ $json.Draft }}",
+            "Timestamp": "={{ $json.Timestamp }}",
+            "Creative Director": "={{ $json['Newsletter Creative Director'] }}",
+            "Freelancer": "={{ $json['Newsletter Freelancer'] }}",
+            "Agency Manager": "={{ $json['Newsletter Agency Manager'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Meta Description",
+              "displayName": "Meta Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Draft",
+              "displayName": "Draft",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Creative Director",
+              "displayName": "Creative Director",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Freelancer",
+              "displayName": "Freelancer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Agency Manager",
+              "displayName": "Agency Manager",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1232,
+        -256
+      ],
+      "id": "b5bdbb5b-4492-4ca1-aefa-0d786bd0803d",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "c38YCKYnZIL3BbEB",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "mistral-tiny-latest",
+        "options": {
+          "maxTokens": 4000,
+          "temperature": 0.7
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        512,
+        96
+      ],
+      "id": "4c1a9406-6bd6-4751-b75b-18a20b8f65a1",
+      "name": "Mistral Cloud Chat Model",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "GuRgCPV3dEKsw1Vc",
+          "name": "Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const campaignId = $('Edit Fields').first().json.campaign_id;\n// Sửa danh sách ở đây để ghi vào Sheet cho đẹp\nconst personas = ['Creative Director', 'Freelancer', 'Agency Manager'];\n\nreturn personas.map(persona => ({\n    json: {\n        \"Campaign ID\": campaignId,\n        \"Persona\": persona,\n        \"Open Rate\": parseFloat((Math.random() * 30 + 20).toFixed(1)),\n        \"Click Rate\": parseFloat((Math.random() * 10 + 2).toFixed(1)),\n        \"Unsubscribe Rate\": parseFloat((Math.random() * 1).toFixed(2)),\n        \"Emails Sent\": Math.floor(Math.random() * 50 + 10),\n        \"Timestamp\": new Date().toISOString()\n    }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1520,
+        -256
+      ],
+      "id": "fea784ff-a229-44cc-be25-f4ef0f7163b7",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1wxUQZTdsD0fSRTxn5JYRXDuIhOBLvWJOJwIauZdxEGc",
+          "mode": "list",
+          "cachedResultName": "NovaMind",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wxUQZTdsD0fSRTxn5JYRXDuIhOBLvWJOJwIauZdxEGc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2063090820,
+          "mode": "list",
+          "cachedResultName": "Analytics",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wxUQZTdsD0fSRTxn5JYRXDuIhOBLvWJOJwIauZdxEGc/edit#gid=2063090820"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Campaign ID": "={{ $json[\"Campaign ID\"] }}",
+            "Persona": "={{ $json.Persona }}",
+            "Open Rate": "={{ $json[\"Open Rate\"] }}",
+            "Click Rate": "={{ $json[\"Click Rate\"] }}",
+            "Unsubscribe Rate": "={{ $json[\"Unsubscribe Rate\"] }}",
+            "Timestamp": "={{ $json.Timestamp }}",
+            "Emails Sent": "={{ $json[\"Emails Sent\"] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Campaign ID",
+              "displayName": "Campaign ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Persona",
+              "displayName": "Persona",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Open Rate",
+              "displayName": "Open Rate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Click Rate",
+              "displayName": "Click Rate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Unsubscribe Rate",
+              "displayName": "Unsubscribe Rate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Emails Sent",
+              "displayName": "Emails Sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1904,
+        -256
+      ],
+      "id": "5bc87ef5-5cbc-49b6-86a5-d791bf386364",
+      "name": "Append row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "c38YCKYnZIL3BbEB",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "all_metrics",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1792,
+        -32
+      ],
+      "id": "f979d30d-4663-492f-802b-cc9525a5dfc1",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a marketing analyst. Analyze this newsletter campaign performance data and write a 3-4 sentence summary in plain English.\n\nIdentify:\n- Which persona performed best and why\n- Any concerning metrics (low open rate, high unsubscribe)\n- One specific recommendation for the next campaign\n\nData: {{ JSON.stringify($json.all_metrics) }}\n\nReturn plain text only. No JSON. No bullet points. Write in paragraph form.",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        1392,
+        -32
+      ],
+      "id": "db91e923-af99-40c1-bb7a-f17eaf0a3fad",
+      "name": "Performance Summary"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a content strategist for NovaMind, an AI automation startup targeting creative agencies.\n\nBased on this campaign's performance data and the blog topic that was just published, suggest 3 next blog topics that would likely perform better.\n\nCurrent topic: {{ $('Edit Fields').first().json.topic }}\nPerformance data: {{ JSON.stringify($json) }}\n\nReturn ONLY a JSON object like this:\n{\n  \"suggestions\": [\n    {\"title\": \"...\", \"reason\": \"...\"},\n    {\"title\": \"...\", \"reason\": \"...\"},\n    {\"title\": \"...\", \"reason\": \"...\"}\n  ]\n}\nNo markdown. No explanation.",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        1072,
+        288
+      ],
+      "id": "405eb3d8-926c-4d2d-946b-4421a3736c9a",
+      "name": "Prepare Summary Input"
+    },
+    {
+      "parameters": {
+        "jsCode": "try {\n    const raw = $input.first().json.text || \"\";\n    const start = raw.indexOf('{');\n    const end = raw.lastIndexOf('}');\n    const parsed = JSON.parse(raw.substring(start, end + 1));\n    return [{ json: { suggestions: parsed.suggestions } }];\n} catch(e) {\n    return [{ json: { suggestions: [\n        { title: \"Error parsing suggestions\", reason: e.message }\n    ]}}];\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        288
+      ],
+      "id": "c8647f77-b759-4427-aad0-062c5ed526cf",
+      "name": "Suggestions"
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1072,
+        -32
+      ],
+      "id": "c20f17a1-ca3f-4a04-8a96-87bc93c3fe7b",
+      "name": "Wait",
+      "webhookId": "e0d0d7c0-1529-48e9-8264-11ca7275fa83"
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2016,
+        -32
+      ],
+      "id": "dba9f762-a985-4517-a1ed-713abefd6085",
+      "name": "Wait1",
+      "webhookId": "50920f4d-629f-4069-8ec9-ac14b0580544"
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1440,
+        288
+      ],
+      "id": "e82b2951-f267-40f1-866b-abdd64a10694",
+      "name": "Wait2",
+      "webhookId": "450120ed-d10a-47bd-b46f-bde91809b9d9"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "localhost:5678",
+            "connection": "keep-alive",
+            "content-length": "48",
+            "sec-ch-ua-platform": "\"macOS\"",
+            "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+            "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\"",
+            "content-type": "application/json",
+            "sec-ch-ua-mobile": "?0",
+            "accept": "*/*",
+            "origin": "http://localhost:5678",
+            "sec-fetch-site": "same-origin",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-dest": "empty",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "vi,en-US;q=0.9,en;q=0.8,fr-FR;q=0.7,fr;q=0.6",
+            "cookie": {
+              "__redacted": true,
+              "reason": "node_defined_field",
+              "canReveal": false
+            }
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "topic": "AI in 2026",
+            "author": "Zoe Anh Nguyen"
+          },
+          "webhookUrl": "http://localhost:5678/webhook-test/novamind-pipeline",
+          "executionMode": "test"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Cloud Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Performance Summary",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Prepare Summary Input",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Performance Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Performance Summary": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Summary Input": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Suggestions": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        []
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Prepare Summary Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "Suggestions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "cfbd231e-954e-4ba6-aaab-5fbd4ac75394",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "122c8dbc4bcf03410486ab3f6ef666707ae5f37d47d34b8eca923a51186d37c4"
+  },
+  "id": "ZPXdvGsarO9awFYL",
+  "tags": []
+}
