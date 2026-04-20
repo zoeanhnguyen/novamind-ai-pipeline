@@ -137,6 +137,8 @@ The browser will display the live HTML dashboard after ~30–60 seconds.
 
 ---
 
-## Screenshots
+## Dashboard Screenshot
 
-*(Add a screenshot of your dashboard here)*
+<p align="center">
+  <img src="dashboard.png" alt="NovaMind Dashboard" width="800">
+</p>
