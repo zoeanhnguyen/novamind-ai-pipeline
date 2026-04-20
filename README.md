@@ -67,11 +67,11 @@ NovaMind is a fictional early-stage AI startup helping creative agencies automat
 
 ## Assumptions & Design Decisions
 
-- **Google Sheets as CRM**: HubSpot free tier requires a verified domain for email sending. Google Sheets was used as a zero-cost substitute that demonstrates the same data structure — contact logging, campaign tracking, and persona segmentation. The payload structure mirrors what would be sent to HubSpot's Contacts and Timeline APIs in a production environment.
+- **Google Sheets as CRM**: HubSpot free tier requires a verified domain for email sending. Google Sheets was used as a zero-cost substitute to demonstrate the same data structure—contact logging, campaign tracking, and persona segmentation. The payload structure mirrors what would be sent to HubSpot's Contacts and Timeline APIs in a production environment.
 - **Simulated metrics**: Newsletter performance data (open rate, click rate, unsubscribe rate) is randomly generated within realistic ranges. In production, these would be fetched from HubSpot, Mailchimp, or a similar platform via API.
 - **Mistral AI**: Used instead of OpenAI due to free tier availability. The `mistral-small-latest` model reliably produces structured JSON output when prompted correctly.
 - **Wait nodes**: Added between consecutive LLM calls to prevent 503 rate limit errors on Mistral's free tier. Each wait is 3–5 seconds.
-- **"Preview Only" button**: The generated blog URL (`www.novamind.com/blog/...`) is a mock slug. The button is intentionally disabled to reflect that no live site exists.
+- **"Preview Link" button**: The generated blog URL (`www.novamind.com/blog/...`) is a mock slug. The button is intentionally disabled to reflect that no live site exists.
 
 ---
 
@@ -99,7 +99,7 @@ novamind-ai-pipeline/
 ### Step 1 — Set up Google Sheets
 
 You can view the reference Google Sheets structure here: 
-[NovaMind CRM & Analytics Template](https://docs.google.com/spreadsheets/d/1wxUQZTdsD0fSRTxn5JYRXDuIhOBLvWJOJwIauZdxEGc/edit?gid=0#gid=0)
+[NovaMind CRM & Analytics](https://docs.google.com/spreadsheets/d/1wxUQZTdsD0fSRTxn5JYRXDuIhOBLvWJOJwIauZdxEGc/edit?gid=0#gid=0)
 
 Create a new Google Spreadsheet with 2 tabs named exactly as follows:
 ...
