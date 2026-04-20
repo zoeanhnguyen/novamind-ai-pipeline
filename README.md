@@ -98,16 +98,20 @@ novamind-ai-pipeline/
 
 ### Step 1 — Set up Google Sheets
 
+You can view the reference Google Sheets structure here: 
+[NovaMind CRM & Analytics Template](https://docs.google.com/spreadsheets/d/1wxUQZTdsD0fSRTxn5JYRXDuIhOBLvWJOJwIauZdxEGc/edit?gid=0#gid=0)
+
 Create a new Google Spreadsheet with 2 tabs named exactly as follows:
+...
 
 **Tab 1 — "Content"**
 ```
-Title | Meta Description | URL | Draft | Newsletter Creative Director | Newsletter Freelancer | Newsletter Agency Manager | Timestamp
+Title | Meta Description | Draft | Creative Director | Freelancer | Agency Manager | Timestamp
 ```
 
 **Tab 2 — "Analytics"**
 ```
-Campaign_ID | Persona | Open_Rate | Click_Rate | Unsubscribe_Rate | Emails_Sent | Timestamp
+Campaign ID | Persona | Open Rate | Click Rate | Unsubscribe Rate | Emails Sent | Timestamp
 ```
 
 ### Step 2 — Import and configure n8n
@@ -127,7 +131,7 @@ Open this URL in your browser (replace the topic as needed):
 http://localhost:5678/webhook-test/novamind-pipeline?topic=AI+Automation+for+Agencies&author=Your+Name
 ```
 
-The browser will display the live HTML dashboard after ~30–60 seconds.
+The browser will display the live HTML dashboard after 30–60 seconds.
 
 ### Step 4 — View results
 
@@ -140,4 +144,3 @@ The browser will display the live HTML dashboard after ~30–60 seconds.
 ## Dashboard Screenshot
 
 ![NovaMind Dashboard](ui/dashboard.png)
-</p>
