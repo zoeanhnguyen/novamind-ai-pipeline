@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;NovaMind | Execution Dashboard&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root { --bg: #0b0f1a; --card: #161b2c; --accent: #818cf8; --text: #f8fafc; --sub: #94a3b8; --success: #10b981; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 800px; margin: 50px auto; padding: 20px; line-height: 1.5; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header { border-bottom: 1px solid #2d3348; padding-bottom: 20px; margin-bottom: 30px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin: 0; color: var(--accent); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.status-pill { display: inline-flex; align-items: center; background: rgba(16, 185, 129, 0.1); color: var(--success); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-top: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card { background: var(--card); border-radius: 20px; padding: 24px; border: 1px solid #2d3348; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.full { grid-column: span 2; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--sub); margin-bottom: 16px; margin-top: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.blog-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; display: block; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn-disabled { display: inline-block; background: #242b3d; color: var(--sub); padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; margin-top: 15px; border: 1px solid #334155; cursor: default; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tag-container { display: flex; flex-wrap: wrap; gap: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tag { background: #242b3d; padding: 6px 14px; border-radius: 8px; font-size: 13px; border: 1px solid #334155; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.insight-box { background: #0f172a; padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); color: #cbd5e1; font-size: 15px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.topic-item { background: #0f172a; border-radius: 10px; padding: 16px; margin-bottom: 10px; border: 1px solid #2d3348; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.topic-title { font-weight: 600; font-size: 15px; color: var(--text); margin-bottom: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.topic-reason { font-size: 13px; color: var(--sub); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.topic-num { display: inline-block; background: var(--accent); color: white; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; font-size: 12px; font-weight: 700; margin-right: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.footer-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--sub); margin-top: 30px; padding-top: 20px; border-top: 1px solid #2d3348; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.id-code { font-family: monospace; color: var(--accent); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;NovaMind Pipeline&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="status-pill"&gt;● System Active&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Primary Content&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="blog-title"&gt;{{ $('Code in JavaScript').first().json.Title }}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p style="color: var(--sub); font-size: 15px;"&gt;{{ $('Code in JavaScript').first().json['Meta Description'] }}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="btn-disabled"&gt;Preview Only — Not Published&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Distribution&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="tag-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Creative Director&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Solo Freelancer&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="tag"&gt;Agency Manager&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Automation Status&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="font-size: 24px; font-weight: 700; color: var(--success);"&gt;100%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p style="font-size: 12px; color: var(--sub); margin: 0;"&gt;Data synced to Sheets&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;AI Performance Insight&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="insight-box"&gt;{{ $('Performance Summary').first().json.text }}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Suggested Next Topics&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{{ $('Suggestions').first().json.suggestions.map((s, i) =&gt; `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="topic-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="topic-title"&gt;&lt;span class="topic-num"&gt;${i+1}&lt;/span&gt;${s.title}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="topic-reason"&gt;${s.reason}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`).join('') }}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="footer-meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span&gt;Execution ID: &lt;span class="id-code"&gt;{{ $('Edit Fields').first().json.campaign_id }}&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span&gt;{{ $('Edit Fields').first().json.timestamp }}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
