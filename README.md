@@ -79,7 +79,7 @@ Webhook → Edit Fields → Basic LLM Chain → Parse JSON → Sheets (Content)
 - **AI Content Generation** — single LLM call produces a full blog draft (800–1000 words with SEO metadata) + 3 persona-targeted newsletter versions in one structured JSON response
 - **Persona Segmentation** — 3 audience types:
   - *Creative Director* — focuses on team efficiency, creative vision, ROI
-  - *Solo Freelancer* — focuses on saving time, earning more, freelance tools
+  - *Solo Freelancer* — focuses on saving time, earning more, and freelance tools
   - *Agency Manager* — focuses on scaling operations, client delivery, margins
 - **CRM Simulation** — Google Sheets acts as mock CRM; each campaign is logged with title, newsletter content, campaign ID, and send timestamp
 - **Performance Logging** — simulated open rate (20–50%), click rate (2–12%), unsubscribe rate (0–1%), and emails sent per persona, stored historically in Analytics sheet
@@ -106,8 +106,8 @@ Webhook → Edit Fields → Basic LLM Chain → Parse JSON → Sheets (Content)
 
 ```
 novamind-ai-pipeline/
-├── workflow/
-│   └── novamind-workflow.json     ← import this into n8n
+├── novamind-workflow.json         ← import this into n8n
+│   
 ├── ui/
 │   └── trigger.html               ← optional HTML trigger form
 └── README.md
